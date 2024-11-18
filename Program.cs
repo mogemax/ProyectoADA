@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
+using System.ComponentModel;
 using System.Xml;
 namespace ConsoleApp1;
 
 public class Class1
 {
-    public static void main(string[] arg){
+    public static void Main(string[] arg){
         //Structure validation
         int n=0;
         do{
@@ -43,10 +44,11 @@ public class Class1
                 Console.WriteLine("Invalid option. (Between 1 and 3).");
             }
         }while(opc<1||opc>3);
-        
+        Console.WriteLine("");
         switch(opc){
             case 1:
                 Data(arr1);
+                band=1;
             break;
             case 2:
                 if(band==1){
@@ -73,60 +75,60 @@ public class Class1
             arr2[i].subject_name=Console.ReadLine();
             Console.Write("Enter the teacher name: ");
             arr2[i].teacher_name=Console.ReadLine();
-
+            Console.WriteLine("");
             arr2[i].hours = new double[n1];
 
             for(int j=0;j<5;j++){
                 switch(j){
-                    case 1:
+                    case 0:
                         do{
                             Console.Write("Enter the subject hours on Monday: ");
                             arr2[i].hours[j]=double.Parse(Console.ReadLine());
-                            if(arr2[i].hours[j]<1||arr2[i].hours[j]>3){
+                            if(arr2[i].hours[j]<0||arr2[i].hours[j]>3){
                                 Console.Write("Invalid number of hours.");
                             }
-                        }while(arr2[i].hours[j]<1||arr2[i].hours[j]>3);
+                        }while(arr2[i].hours[j]<0||arr2[i].hours[j]>3);
                     break;
-                    case 2:
+                    case 1:
                         do{
                             Console.Write("Enter the subject hours on Tuesday: ");
                             arr2[i].hours[j]=double.Parse(Console.ReadLine());
-                            if(arr2[i].hours[j]<1||arr2[i].hours[j]>3){
+                            if(arr2[i].hours[j]<0||arr2[i].hours[j]>3){
                                 Console.Write("Invalid number of hours.");
                             }
-                        }while(arr2[i].hours[j]<1||arr2[i].hours[j]>3);
+                        }while(arr2[i].hours[j]<0||arr2[i].hours[j]>3);
                     break;
-                    case 3:
+                    case 2:
                         do{
                             Console.Write("Enter the subject hours on Wednesday: ");
                             arr2[i].hours[j]=double.Parse(Console.ReadLine());
-                            if(arr2[i].hours[j]<1||arr2[i].hours[j]>3){
+                            if(arr2[i].hours[j]<0||arr2[i].hours[j]>3){
                                 Console.Write("Invalid number of hours.");
                             }
-                        }while(arr2[i].hours[j]<1||arr2[i].hours[j]>3);
+                        }while(arr2[i].hours[j]<0||arr2[i].hours[j]>3);
                     break;
-                    case 4:
+                    case 3:
                         do{
                             Console.Write("Enter the subject hours on Thursday: ");
                             arr2[i].hours[j]=double.Parse(Console.ReadLine());
-                            if(arr2[i].hours[j]<1||arr2[i].hours[j]>3){
+                            if(arr2[i].hours[j]<0||arr2[i].hours[j]>3){
                                 Console.Write("Invalid number of hours.");
                             }
-                        }while(arr2[i].hours[j]<1||arr2[i].hours[j]>3);
+                        }while(arr2[i].hours[j]<0||arr2[i].hours[j]>3);
                     break;
-                    case 5:
+                    case 4:
                         do{
                             Console.Write("Enter the subject hours on Friday: ");
                             arr2[i].hours[j]=double.Parse(Console.ReadLine());
-                            if(arr2[i].hours[j]<1||arr2[i].hours[j]>3){
+                            if(arr2[i].hours[j]<0||arr2[i].hours[j]>3){
                                 Console.Write("Invalid number of hours.");
                             }
-                        }while(arr2[i].hours[j]<1||arr2[i].hours[j]>3);
+                        }while(arr2[i].hours[j]<0||arr2[i].hours[j]>3);
                     break;
                 }
                 arr2[i].total_hours += arr2[i].hours[j];
             }
-
+            Console.WriteLine("");
             arr2[i].absences = (arr2[i].total_hours*1.5);
 
         }
