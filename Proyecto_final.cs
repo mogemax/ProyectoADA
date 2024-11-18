@@ -74,7 +74,7 @@ public class Class1
             arr2[i].hours = new int[n1];
 
             for(int j=0;j<5;j++){
-                switch(){
+                switch(j){
                     case 1:
                         do{
                             Console.Write("Enter the subject hours on Monday: ");
@@ -162,13 +162,44 @@ public class Class1
         }while(op<4);
     }
     static void Schedule(Class[] arr4){
-        
+        int n = arr4.Lenght;
+        for(int i=0;i<n;i++){
+
+        }
     }
     static void Search(Class[] arr5){
+        int n1 = arr5.Lenght;
+        int indice = -1;
+        Console.Write("Enter the id of the class to search: ");
+        string id = Console.ReadLine();
+        for(int m = 0;m<n1;m++){
+            if(arr5[m].id==id){
+                indice = m;
+                Console.Write("Class: "+arr5.subject_name);
+                Console.WriteLine("\tID: {0}\tTeacher: {1}",arr5[m].id,arr5[m].teacher_name);
+                Console.WriteLine("\tTotal Hours: {0}\tTotal Absences: {1}",arr5[m].total_hours,arr5[m].absences);
+            }
+        }
+        if(indice == -1){
+                Console.WriteLine("Class not found.");
+            }
 
     }
     static void Biggest(Class[] arr6){
-
+        int n2 = arr6.Lenght;
+        double aux;
+        for(int p=0;p<n2-1;p++){
+            for(int q=0;q<n2-(p+1);q++){
+                if(arr6[q].total_hours<arr6[q+1].total_hours){
+                    aux = arr6[q+1];
+                    arr6[q+1] = arr6[q];
+                    arr6[q] = aux;
+                }
+            }
+        }
+        for(int r=0;r<5;r++){
+            Console.WriteLine("Profesor: {0} \t Total Hours: {1}",arr6[r].teacher_name,arr6[r].total_hours);
+        }
     }
 }
 
