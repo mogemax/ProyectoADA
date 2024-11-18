@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/usuario/Documents/Test/Test.csproj",
+      "projectUniqueName": "/Users/usuario/Documents/GitHub/ProyectoADA/Test.csproj",
       "projectName": "Test",
-      "projectPath": "/Users/usuario/Documents/Test/Test.csproj",
+      "projectPath": "/Users/usuario/Documents/GitHub/ProyectoADA/Test.csproj",
       "packagesPath": "/Users/usuario/.nuget/packages/",
-      "outputPath": "/Users/usuario/Documents/Test/obj/",
+      "outputPath": "/Users/usuario/Documents/GitHub/ProyectoADA/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/usuario/.nuget/NuGet/NuGet.Config"
