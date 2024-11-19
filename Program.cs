@@ -12,15 +12,17 @@ public class Class1
         do{
             Console.Write("Enter the number of classes: ");
             n = int.Parse(Console.ReadLine());
+            // Validate that the number of classes is greater than 5
             if(n<5){
                 Console.WriteLine("Invalid number of classes. (Greater than 5)");
             }
         }while(n<5);
         Console.WriteLine("");
         Class[] arr = new Class[n];
-
+        // Call the menu function with the class array
         Menu(arr);
     }
+    // Structure to hold class information
     struct Class
     {
         public string id;
@@ -30,6 +32,7 @@ public class Class1
         public double total_hours;
         public double absences;
     }
+    // Method to display menu and handle user selection
     static void Menu(Class[] arr1){
         int band=0, opc=0;
         do{
@@ -40,6 +43,7 @@ public class Class1
         do{
             Console.Write("Choose an option: ");
             opc = int.Parse(Console.ReadLine());
+            // Validate that the option is between 1 and 3
             if(opc<1||opc>3){
                 Console.WriteLine("Invalid option. (Between 1 and 3).");
             }
@@ -47,25 +51,26 @@ public class Class1
         Console.WriteLine("");
         switch(opc){
             case 1:
-                Data(arr1);
+                Data(arr1); // Capture data
                 band=1;
             break;
             case 2:
                 if(band==1){
-                    Results(arr1);
+                    Results(arr1); // Show results
                 }
                 else{
                     Console.WriteLine("Enter data first.");
                 }
             break;
             case 3:
-            Console.WriteLine("End.");
+            Console.WriteLine("End."); // End program
             break;
             }
 
         }while(opc<3);
     }
 
+    // Method to capture data for each class
     static void Data(Class[] arr2){
         int n1 = arr2.Length;
         for(int i=0;i<n1;i++){
@@ -84,6 +89,7 @@ public class Class1
                         do{
                             Console.Write("Enter the subject hours on Monday: ");
                             arr2[i].hours[j]=double.Parse(Console.ReadLine());
+                            // Validate that the hours are between 0 and 3
                             if(arr2[i].hours[j]<0||arr2[i].hours[j]>3){
                                 Console.WriteLine("Invalid number of hours (Between 1 and 3).");
                             }
@@ -93,6 +99,7 @@ public class Class1
                         do{
                             Console.Write("Enter the subject hours on Tuesday: ");
                             arr2[i].hours[j]=double.Parse(Console.ReadLine());
+                            // Validate that the hours are between 0 and 3
                             if(arr2[i].hours[j]<0||arr2[i].hours[j]>3){
                                 Console.WriteLine("Invalid number of hours (Between 1 and 3).");
                             }
@@ -102,6 +109,7 @@ public class Class1
                         do{
                             Console.Write("Enter the subject hours on Wednesday: ");
                             arr2[i].hours[j]=double.Parse(Console.ReadLine());
+                            // Validate that the hours are between 0 and 3
                             if(arr2[i].hours[j]<0||arr2[i].hours[j]>3){
                                 Console.WriteLine("Invalid number of hours (Between 1 and 3).");
                             }
@@ -111,6 +119,7 @@ public class Class1
                         do{
                             Console.Write("Enter the subject hours on Thursday: ");
                             arr2[i].hours[j]=double.Parse(Console.ReadLine());
+                            // Validate that the hours are between 0 and 3
                             if(arr2[i].hours[j]<0||arr2[i].hours[j]>3){
                                 Console.WriteLine("Invalid number of hours (Between 1 and 3).");
                             }
@@ -120,6 +129,7 @@ public class Class1
                         do{
                             Console.Write("Enter the subject hours on Friday: ");
                             arr2[i].hours[j]=double.Parse(Console.ReadLine());
+                            // Validate that the hours are between 0 and 3
                             if(arr2[i].hours[j]<0||arr2[i].hours[j]>3){
                                 Console.WriteLine("Invalid number of hours (Between 1 and 3).");
                             }
@@ -128,17 +138,19 @@ public class Class1
                 }
                 arr2[i].total_hours += arr2[i].hours[j];
             }
+            // Validate that the total hours are at least 1
             if(arr2[i].total_hours<1){
                 Console.WriteLine("You need a minimum of 1 hour of class");
             }
             }while(arr2[i].total_hours<1);
             Console.WriteLine("");
-            arr2[i].absences = (arr2[i].total_hours*1.5);
+            arr2[i].absences = (arr2[i].total_hours*1.5); // Calculate absences based on total hours
 
         }
         
 
     }
+    // Method to show results based on user selection
     static void Results(Class[] arr3){
         int op=0;
         do{
@@ -150,26 +162,28 @@ public class Class1
         do{
             Console.Write("Choose an option: ");
             op = int.Parse(Console.ReadLine());
+            // Validate that the option is between 1 and 4
             if(op<1||op>4){
                 Console.WriteLine("Invalid option. (Between 1 and 4).");
             }
         }while(op<1||op>4);
         switch(op){
             case 1:
-                Schedule(arr3);
+                Schedule(arr3); // Show full schedule
             break;
             case 2:
-                Search(arr3);
+                Search(arr3); // Search by ID
             break;
             case 3:
-                Biggest(arr3);
+                Biggest(arr3); // Show top 5 teachers
             break;
             case 4:
-                Console.WriteLine("Returning.");
+                Console.WriteLine("Returning."); // Return to menu
             break;
         }
         }while(op<4);
     }
+    // Method to display full schedule
     static void Schedule(Class[] arr4){
         int n = arr4.Length;
         for(int i=0;i<n;i++){
@@ -209,6 +223,7 @@ public class Class1
             Console.WriteLine("");
         }
     }
+    // Method to search class by ID
     static void Search(Class[] arr5){
         int n1 = arr5.Length;
         int indice = -1;
@@ -222,14 +237,16 @@ public class Class1
                 Console.WriteLine("\tTotal Hours: {0}\tTotal Absences: {1}",arr5[m].total_hours,arr5[m].absences);
             }
         }
+        // If the class is not found, show a message
         if(indice == -1){
                 Console.WriteLine("Class not found.");
             }
-
     }
+    // Method to find the top 5 teachers with the most class hours
     static void Biggest(Class[] arr6){
         int n2 = arr6.Length;
         Class aux;
+        // Bubble sort to find the top 5 teachers with the most class hours
         for(int p=0;p<n2-1;p++){
             for(int q=0;q<n2-(p+1);q++){
                 if(arr6[q].total_hours<arr6[q+1].total_hours){
@@ -240,6 +257,7 @@ public class Class1
             }
         }
         Console.Write("");
+        // Display the top 5 teachers
         for(int r=0;r<5;r++){
             Console.WriteLine("Profesor: {0} \t Total Hours: {1}",arr6[r].teacher_name,arr6[r].total_hours);
         }
