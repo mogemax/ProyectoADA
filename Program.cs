@@ -16,7 +16,7 @@ public class Class1
                 Console.WriteLine("Invalid number of classes. (Greater than 5)");
             }
         }while(n<5);
-
+        Console.WriteLine("");
         Class[] arr = new Class[n];
 
         Menu(arr);
@@ -169,7 +169,39 @@ public class Class1
     static void Schedule(Class[] arr4){
         int n = arr4.Length;
         for(int i=0;i<n;i++){
+            Console.WriteLine("Class "+(n+1)+": "+arr4[n].subject_name);
+            Console.WriteLine("\tID: {0}\tTeacher: {1}",arr4[n].id,arr4[n].teacher_name);
+            Console.WriteLine("\tTotal Hours: {0}\tAbsences: {1}\n",arr4[n].total_hours,arr4[n].absences);
 
+            for(int m=0;m<5;m++){
+                switch(m){
+                case 0:
+                    if(arr4[n].hours[m]!=0){
+                        Console.WriteLine("\t\tOn Monday you have "+arr4[n].hours[m]+" hours of "+arr4[n].subject_name);
+                    }
+                break;
+                case 1:
+                    if(arr4[n].hours[m]!=0){
+                        Console.WriteLine("\t\tOn Tuesday you have "+arr4[n].hours[m]+" hours of "+arr4[n].subject_name);
+                    }
+                break;
+                case 2:
+                    if(arr4[n].hours[m]!=0){
+                        Console.WriteLine("\t\tOn Wednesday you have "+arr4[n].hours[m]+" hours of "+arr4[n].subject_name);
+                    }
+                break;
+                case 3:
+                    if(arr4[n].hours[m]!=0){
+                        Console.WriteLine("\t\tOn Thursday you have "+arr4[n].hours[m]+" hours of "+arr4[n].subject_name);
+                    }
+                break;
+                case 4:
+                    if(arr4[n].hours[m]!=0){
+                        Console.WriteLine("\t\tOn Friday you have "+arr4[n].hours[m]+" hours of "+arr4[n].subject_name);
+                    }
+                break;
+            }
+            }
         }
     }
     static void Search(Class[] arr5){
