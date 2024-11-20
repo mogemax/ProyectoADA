@@ -18,6 +18,7 @@ public class Class1
             }
         }while(n<5);
         Console.WriteLine("");
+        //Structure declaration
         Class[] arr = new Class[n];
         // Call the menu function with the class array
         Menu(arr);
@@ -25,15 +26,16 @@ public class Class1
     // Structure to hold class information
     struct Class
     {
-        public string id;
-        public string subject_name;
-        public string teacher_name;
-        public double[] hours;
-        public double total_hours;
-        public double absences;
+        public string id; // Subject ID
+        public string subject_name; // Subject
+        public string teacher_name; // Teacher’s name
+        public double[] hours; // How much time it takes
+        public double total_hours; // Total hours of class in the week
+        public double absences; // Allowed absences
     }
     // Method to display menu and handle user selection
     static void Menu(Class[] arr1){
+        //flag declaration
         int band=0, opc=0;
         do{
         Console.WriteLine("     MENU    ");
@@ -73,6 +75,7 @@ public class Class1
     // Method to capture data for each class
     static void Data(Class[] arr2){
         int n1 = arr2.Length;
+        //Cycle to fill in class data
         for(int i=0;i<n1;i++){
             Console.Write("Enter the subject ID: ");
             arr2[i].id=Console.ReadLine();
@@ -83,6 +86,7 @@ public class Class1
             Console.WriteLine("");
             arr2[i].hours = new double[n1];
             do{
+            //cycle to fill the hours array
             for(int j=0;j<5;j++){
                 switch(j){
                     case 0:
@@ -136,6 +140,7 @@ public class Class1
                         }while(arr2[i].hours[j]<0||arr2[i].hours[j]>3);
                     break;
                 }
+                //operation to calculate the total hours of the class in the week
                 arr2[i].total_hours += arr2[i].hours[j];
             }
             // Validate that the total hours are at least 1
@@ -186,11 +191,12 @@ public class Class1
     // Method to display full schedule
     static void Schedule(Class[] arr4){
         int n = arr4.Length;
+        //cycle to print matter data
         for(int i=0;i<n;i++){
             Console.WriteLine("\n\tClass "+(i+1)+": "+arr4[i].subject_name);
             Console.WriteLine("\tID: {0}\tTeacher: {1}",arr4[i].id,arr4[i].teacher_name);
             Console.WriteLine("\tTotal Hours: {0}\tAbsences: {1}\n",arr4[i].total_hours,arr4[i].absences);
-
+            //Cycle to print only the days in which you have class
             for(int m=0;m<5;m++){
                 switch(m){
                 case 0:
@@ -229,6 +235,7 @@ public class Class1
         int indice = -1;
         Console.Write("\nEnter the id of the class to search: ");
         string id = Console.ReadLine();
+        //cycle to search the structure
         for(int m = 0;m<n1;m++){
             if(arr5[m].id==id){
                 indice = m;
